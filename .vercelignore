@@ -1,0 +1,9 @@
+.DS_Store
+*.log
+.env
+.env.local
+.git
+node_modules/
+README.md
+CLAUDE.md
+og-source.html

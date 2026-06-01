@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1200px; height: 630px;
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
+    background: #1a2332;
+    overflow: hidden;
+  }
+  .og {
+    width: 1200px; height: 630px;
+    position: relative;
+    background:
+      radial-gradient(circle at 85% 20%, rgba(212, 175, 55, 0.30) 0%, transparent 55%),
+      radial-gradient(circle at 15% 95%, rgba(212, 175, 55, 0.10) 0%, transparent 50%),
+      linear-gradient(135deg, #1a2332 0%, #0f1620 100%);
+    color: #f5f1e8;
+    padding: 70px 90px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+  /* 좌측: 텍스트 */
+  .left {
+    flex: 1;
+    min-width: 0;
+  }
+  .top-badge {
+    display: inline-block;
+    background: #d4af37;
+    color: #1a2332;
+    padding: 10px 22px;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+  }
+  h1 {
+    font-size: 84px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2.5px;
+    margin-bottom: 24px;
+  }
+  h1 .accent {
+    color: #d4af37;
+  }
+  .sub {
+    font-size: 26px;
+    font-weight: 500;
+    opacity: 0.85;
+    line-height: 1.5;
+    margin-bottom: 36px;
+  }
+  .features {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    background: rgba(245, 241, 232, 0.1);
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    color: #f5f1e8;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  /* 우측: 미니 카드 시각화 (3장 살짝 겹친 카드뉴스 미니어처) */
+  .right {
+    width: 360px;
+    height: 460px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .mini-card {
+    position: absolute;
+    width: 280px;
+    height: 350px;
+    background: #f5f1e8;
+    border-radius: 16px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .mini-card.back2 {
+    top: 0; right: 0;
+    transform: rotate(8deg);
+    background: #e8d68f;
+  }
+  .mini-card.back1 {
+    top: 30px; right: 40px;
+    transform: rotate(4deg);
+    background: #d4af37;
+    color: #1a2332;
+  }
+  .mini-card.front {
+    top: 55px; left: 0;
+    transform: rotate(-6deg);
+    background: #f5f1e8;
+    color: #1a2332;
+  }
+  .mini-num {
+    font-size: 56px;
+    font-weight: 900;
+    color: #d4af37;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .mini-front-num {
+    color: #1a2332;
+  }
+  .mini-title {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .mini-body {
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.75;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+<div class="og">
+  <div class="left">
+    <div class="top-badge">메이TV 워크숍</div>
+    <h1>인스타 카드뉴스,<br><span class="accent">5분 안에 8장</span> 완성</h1>
+    <p class="sub">주제·디자인·컬러만 선택하면 끝.<br>코드 한 줄 없는 노코드 빌더.</p>
+    <div class="features">
+      <span class="chip">6가지 예시</span>
+      <span class="chip">3가지 레이아웃</span>
+      <span class="chip">즉시 다운로드</span>
+    </div>
+  </div>
+  <div class="right">
+    <div class="mini-card back2"></div>
+    <div class="mini-card back1">
+      <div class="mini-num">02</div>
+      <div class="mini-title">숫자를 무기로</div>
+      <div class="mini-body">73% 같은 구체적 수치 한 개당 인용률이 40% 올라갑니다.</div>
+    </div>
+    <div class="mini-card front">
+      <div class="mini-num mini-front-num">01</div>
+      <div class="mini-title">Answer-First</div>
+      <div class="mini-body">AI는 첫 문단을 그대로 인용합니다. 질문 → 답 → 근거 순서로.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
