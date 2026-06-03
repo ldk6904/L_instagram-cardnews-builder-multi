@@ -18,7 +18,7 @@ const state = {
   seriesName: '나의 카드뉴스 시리즈',
   channel: '',
   layout: 'classic',
-  colors: { main: '#1a2332', accent: '#d4af37', bg: '#f5f1e8' },
+  colors: { main: '#e2e8f0', accent: '#00d4ff', bg: '#080c18' },
   cover: {
     badge: '이번 주 인사이트',
     title: '검색이 사라지는\n시대',
@@ -69,6 +69,60 @@ function nl2br(str) {
   return escapeHtml(str).replace(/\n/g, '<br>');
 }
 
+// ───────── SVG 스케치 데코레이터 ─────────
+function svgNeuralNet(accent) {
+  return `<svg style="position:absolute;right:-30px;top:40px;width:560px;height:680px;opacity:0.13;pointer-events:none" viewBox="0 0 560 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="70" cy="160" r="12" fill="${accent}"/>
+    <circle cx="70" cy="280" r="12" fill="${accent}"/>
+    <circle cx="70" cy="400" r="12" fill="${accent}"/>
+    <circle cx="70" cy="520" r="10" fill="${accent}"/>
+    <circle cx="220" cy="100" r="12" fill="${accent}"/>
+    <circle cx="220" cy="220" r="16" fill="${accent}"/>
+    <circle cx="220" cy="340" r="12" fill="${accent}"/>
+    <circle cx="220" cy="460" r="12" fill="${accent}"/>
+    <circle cx="220" cy="570" r="10" fill="${accent}"/>
+    <circle cx="370" cy="180" r="18" fill="${accent}"/>
+    <circle cx="370" cy="320" r="14" fill="${accent}"/>
+    <circle cx="370" cy="460" r="14" fill="${accent}"/>
+    <circle cx="500" cy="260" r="20" fill="${accent}"/>
+    <circle cx="500" cy="400" r="14" fill="${accent}"/>
+    <line x1="70" y1="160" x2="220" y2="100" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="70" y1="160" x2="220" y2="220" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="70" y1="280" x2="220" y2="220" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="70" y1="280" x2="220" y2="340" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="70" y1="400" x2="220" y2="340" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="70" y1="400" x2="220" y2="460" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="70" y1="520" x2="220" y2="460" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="70" y1="520" x2="220" y2="570" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="220" y1="100" x2="370" y2="180" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="220" y1="220" x2="370" y2="180" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="220" y1="220" x2="370" y2="320" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="220" y1="340" x2="370" y2="320" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="220" y1="340" x2="370" y2="460" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="220" y1="460" x2="370" y2="460" stroke="${accent}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="370" y1="180" x2="500" y2="260" stroke="${accent}" stroke-width="2" opacity="0.6"/>
+    <line x1="370" y1="320" x2="500" y2="260" stroke="${accent}" stroke-width="2" opacity="0.6"/>
+    <line x1="370" y1="320" x2="500" y2="400" stroke="${accent}" stroke-width="2" opacity="0.6"/>
+    <line x1="370" y1="460" x2="500" y2="400" stroke="${accent}" stroke-width="2" opacity="0.6"/>
+  </svg>`;
+}
+
+function svgCircuit(accent, idx) {
+  const p = [
+    `<svg style="position:absolute;right:50px;top:50px;width:240px;height:240px;opacity:0.1;pointer-events:none" viewBox="0 0 240 240" fill="none"><rect x="20" y="20" width="200" height="200" rx="4" stroke="${accent}" stroke-width="1.5"/><circle cx="20" cy="20" r="5" fill="${accent}"/><circle cx="220" cy="20" r="5" fill="${accent}"/><circle cx="20" cy="220" r="5" fill="${accent}"/><circle cx="220" cy="220" r="5" fill="${accent}"/><line x1="120" y1="20" x2="120" y2="70" stroke="${accent}" stroke-width="1.5"/><line x1="120" y1="70" x2="170" y2="70" stroke="${accent}" stroke-width="1.5"/><circle cx="170" cy="70" r="5" fill="${accent}"/><line x1="20" y1="120" x2="70" y2="120" stroke="${accent}" stroke-width="1.5"/><line x1="70" y1="120" x2="70" y2="170" stroke="${accent}" stroke-width="1.5"/><circle cx="70" cy="170" r="5" fill="${accent}"/><line x1="220" y1="120" x2="170" y2="120" stroke="${accent}" stroke-width="1.5"/><line x1="170" y1="120" x2="170" y2="170" stroke="${accent}" stroke-width="1.5"/><circle cx="170" cy="170" r="5" fill="${accent}"/><rect x="95" y="95" width="50" height="50" stroke="${accent}" stroke-width="1.5"/><circle cx="120" cy="120" r="10" fill="${accent}" opacity="0.5"/></svg>`,
+    `<svg style="position:absolute;left:40px;bottom:100px;width:220px;height:220px;opacity:0.09;pointer-events:none" viewBox="0 0 220 220" fill="none"><circle cx="110" cy="110" r="90" stroke="${accent}" stroke-width="1.5" stroke-dasharray="8 5"/><circle cx="110" cy="110" r="60" stroke="${accent}" stroke-width="1.5"/><circle cx="110" cy="110" r="30" stroke="${accent}" stroke-width="1.5"/><circle cx="110" cy="110" r="8" fill="${accent}"/><line x1="110" y1="20" x2="110" y2="50" stroke="${accent}" stroke-width="1.5"/><line x1="110" y1="170" x2="110" y2="200" stroke="${accent}" stroke-width="1.5"/><line x1="20" y1="110" x2="50" y2="110" stroke="${accent}" stroke-width="1.5"/><line x1="170" y1="110" x2="200" y2="110" stroke="${accent}" stroke-width="1.5"/></svg>`,
+    `<svg style="position:absolute;right:40px;top:40px;width:280px;height:280px;opacity:0.09;pointer-events:none" viewBox="0 0 280 280" fill="none"><polygon points="140,20 230,70 230,170 140,220 50,170 50,70" stroke="${accent}" stroke-width="1.5"/><polygon points="140,55 205,92 205,165 140,202 75,165 75,92" stroke="${accent}" stroke-width="1"/><circle cx="140" cy="140" r="25" stroke="${accent}" stroke-width="1.5"/><circle cx="140" cy="140" r="8" fill="${accent}"/><line x1="140" y1="20" x2="140" y2="55" stroke="${accent}" stroke-width="1"/><line x1="230" y1="70" x2="205" y2="92" stroke="${accent}" stroke-width="1"/><line x1="50" y1="170" x2="75" y2="165" stroke="${accent}" stroke-width="1"/></svg>`,
+    `<svg style="position:absolute;right:50px;top:60px;width:160px;height:320px;opacity:0.08;pointer-events:none" viewBox="0 0 160 320" fill="${accent}" font-family="monospace"><text x="0" y="45" font-size="32">01</text><text x="50" y="90" font-size="26">10</text><text x="10" y="135" font-size="30">11</text><text x="70" y="180" font-size="24">00</text><text x="0" y="225" font-size="28">01</text><text x="55" y="270" font-size="32">10</text><text x="20" y="315" font-size="26">11</text></svg>`,
+    `<svg style="position:absolute;left:0;bottom:60px;width:500px;height:160px;opacity:0.1;pointer-events:none" viewBox="0 0 500 160" fill="none"><path d="M0,80 Q62,40 125,80 Q187,120 250,80 Q312,40 375,80 Q437,120 500,80" stroke="${accent}" stroke-width="2.5"/><path d="M0,100 Q62,60 125,100 Q187,140 250,100 Q312,60 375,100 Q437,140 500,100" stroke="${accent}" stroke-width="1.5" opacity="0.5"/><path d="M0,60 Q62,20 125,60 Q187,100 250,60 Q312,20 375,60 Q437,100 500,60" stroke="${accent}" stroke-width="1.5" opacity="0.5"/></svg>`,
+    `<svg style="position:absolute;right:0;top:0;width:340px;height:480px;opacity:0.07;pointer-events:none" viewBox="0 0 340 480" fill="${accent}">${[0,1,2,3,4,5,6,7].map(r=>[0,1,2,3,4,5].map(c=>`<circle cx="${28+c*52}" cy="${28+r*60}" r="4"/>`).join('')).join('')}</svg>`,
+  ];
+  return p[idx % p.length];
+}
+
+function svgPulse(accent) {
+  return `<svg style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:1000px;height:1000px;opacity:0.07;pointer-events:none" viewBox="0 0 1000 1000" fill="none"><circle cx="500" cy="500" r="100" stroke="${accent}" stroke-width="2"/><circle cx="500" cy="500" r="210" stroke="${accent}" stroke-width="1.5"/><circle cx="500" cy="500" r="330" stroke="${accent}" stroke-width="1.5" stroke-dasharray="12 6"/><circle cx="500" cy="500" r="450" stroke="${accent}" stroke-width="1" stroke-dasharray="8 8"/><line x1="500" y1="60" x2="500" y2="170" stroke="${accent}" stroke-width="2"/><line x1="500" y1="830" x2="500" y2="940" stroke="${accent}" stroke-width="2"/><line x1="60" y1="500" x2="170" y2="500" stroke="${accent}" stroke-width="2"/><line x1="830" y1="500" x2="940" y2="500" stroke="${accent}" stroke-width="2"/><circle cx="500" cy="60" r="10" fill="${accent}"/><circle cx="500" cy="940" r="10" fill="${accent}"/><circle cx="60" cy="500" r="10" fill="${accent}"/><circle cx="940" cy="500" r="10" fill="${accent}"/><circle cx="500" cy="500" r="22" fill="${accent}" opacity="0.35"/></svg>`;
+}
+
 // ─────────────────────────────────────────────────────────
 // 카드 렌더링 (idx → 적절한 카드 타입 함수 호출)
 // ─────────────────────────────────────────────────────────
@@ -105,44 +159,46 @@ function baseFrame(inner, colors, extra = '') {
 function renderCover(data, colors, layout) {
   if (layout === 'minimal') {
     return baseFrame(`
-      <div style="position:absolute; top:0; left:0; right:0; height:8px; background:${colors.accent}"></div>
-      <div style="padding:120px 90px 90px; display:flex; flex-direction:column; height:100%;">
-        <div style="font-size:24px; font-weight:700; letter-spacing:4px; color:${colors.accent}; margin-bottom:60px;">
+      <div style="position:absolute;top:0;left:0;right:0;height:7px;background:linear-gradient(90deg,${colors.accent},${colors.accent}77,transparent)"></div>
+      ${svgNeuralNet(colors.accent)}
+      <div style="padding:130px 90px 90px;display:flex;flex-direction:column;height:100%;">
+        <div style="font-size:24px;font-weight:700;letter-spacing:5px;color:${colors.accent};margin-bottom:60px;">
           ${escapeHtml(data.badge).toUpperCase()}
         </div>
-        <div style="border-top:2px solid ${colors.main}; padding-top:80px; flex:1; display:flex; flex-direction:column; justify-content:center;">
-          <h1 style="font-size:130px; font-weight:900; line-height:1.05; letter-spacing:-3px; margin-bottom:60px;">
+        <div style="border-top:2px solid ${colors.main}33;padding-top:70px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+          <h1 style="font-size:126px;font-weight:900;line-height:1.0;letter-spacing:-3px;margin-bottom:52px;">
             ${nl2br(data.title)}
           </h1>
-          <p style="font-size:38px; font-weight:500; line-height:1.45; color:${colors.main}; opacity:0.72;">
+          <p style="font-size:38px;font-weight:500;line-height:1.5;color:${colors.main};opacity:0.7;">
             ${nl2br(data.subtitle)}
           </p>
         </div>
-        <div style="margin-top:50px; padding-top:30px; border-top:2px solid ${colors.main}; display:flex; justify-content:space-between; font-size:22px; font-weight:700;">
-          <span>${escapeHtml(data.highlight)}</span>
-          <span style="color:${colors.accent}">${escapeHtml(state.channel)}</span>
+        <div style="margin-top:50px;padding-top:30px;border-top:1px solid ${colors.main}28;display:flex;justify-content:space-between;align-items:center;font-size:22px;font-weight:700;">
+          <span style="color:${colors.accent}">${escapeHtml(data.highlight)}</span>
+          <span style="opacity:0.5">${escapeHtml(state.channel)}</span>
         </div>
       </div>
     `, colors);
   }
   if (layout === 'bold') {
     return baseFrame(`
-      <div style="position:absolute; inset:0; background:${colors.main}; clip-path:polygon(0 0, 100% 0, 100% 70%, 0 100%);"></div>
-      <div style="position:relative; padding:120px 90px 90px; display:flex; flex-direction:column; height:100%;">
-        <div style="display:inline-block; align-self:flex-start; background:${colors.accent}; color:${colors.main}; padding:18px 36px; font-size:30px; font-weight:900; letter-spacing:2px; margin-bottom:60px;">
+      <div style="position:absolute;inset:0;background:${colors.main};clip-path:polygon(0 0,100% 0,100% 65%,0 100%);"></div>
+      ${svgNeuralNet(colors.accent)}
+      <div style="position:relative;padding:110px 90px 90px;display:flex;flex-direction:column;height:100%;">
+        <div style="display:inline-block;align-self:flex-start;background:${colors.accent};color:${colors.bg};padding:16px 34px;font-size:28px;font-weight:900;letter-spacing:3px;margin-bottom:55px;border-radius:4px;">
           ${escapeHtml(data.badge).toUpperCase()}
         </div>
-        <h1 style="font-size:140px; font-weight:900; line-height:1.0; letter-spacing:-4px; color:${colors.bg}; margin-bottom:60px;">
+        <h1 style="font-size:136px;font-weight:900;line-height:1.0;letter-spacing:-4px;color:${colors.bg};margin-bottom:52px;">
           ${nl2br(data.title)}
         </h1>
-        <p style="font-size:40px; font-weight:600; line-height:1.4; color:${colors.bg}; opacity:0.85;">
+        <p style="font-size:40px;font-weight:600;line-height:1.45;color:${colors.bg};opacity:0.82;">
           ${nl2br(data.subtitle)}
         </p>
-        <div style="margin-top:auto; display:flex; justify-content:space-between; align-items:flex-end; padding-top:40px;">
-          <div style="background:${colors.accent}; color:${colors.main}; padding:14px 28px; font-size:28px; font-weight:900;">
+        <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;padding-top:40px;">
+          <div style="background:${colors.accent};color:${colors.bg};padding:14px 28px;font-size:28px;font-weight:900;border-radius:4px;">
             ${escapeHtml(data.highlight)}
           </div>
-          <div style="font-size:28px; font-weight:800; color:${colors.bg};">
+          <div style="font-size:26px;font-weight:800;color:${colors.bg};opacity:0.65;">
             ${escapeHtml(state.channel)}
           </div>
         </div>
@@ -151,22 +207,28 @@ function renderCover(data, colors, layout) {
   }
   // classic (default)
   return baseFrame(`
-    <div style="position:absolute; inset:0; background: radial-gradient(circle at 85% 15%, ${colors.accent}33 0%, transparent 50%), ${colors.bg};"></div>
-    <div style="position:relative; padding:120px 90px 90px; display:flex; flex-direction:column; height:100%; text-align:center; align-items:center;">
-      <div style="display:inline-block; background:${colors.main}; color:${colors.bg}; padding:16px 36px; font-size:28px; font-weight:800; letter-spacing:2px; margin-bottom:60px;">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,${colors.bg} 0%,${colors.bg} 55%,${colors.accent}1a 100%);"></div>
+    <div style="position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,${colors.accent},${colors.accent}66,transparent);"></div>
+    <div style="position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(180deg,${colors.accent},${colors.accent}33,transparent);"></div>
+    ${svgNeuralNet(colors.accent)}
+    <div style="position:relative;padding:120px 90px 90px 116px;display:flex;flex-direction:column;height:100%;">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:12px;background:${colors.accent};color:${colors.bg};padding:14px 32px;font-size:26px;font-weight:800;letter-spacing:3px;margin-bottom:68px;border-radius:4px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:${colors.bg};display:inline-block;flex-shrink:0;"></span>
         ${escapeHtml(data.badge).toUpperCase()}
       </div>
-      <h1 style="font-size:140px; font-weight:900; line-height:1.05; letter-spacing:-3px; margin-bottom:50px;">
+      <h1 style="font-size:134px;font-weight:900;line-height:1.0;letter-spacing:-4px;margin-bottom:46px;color:${colors.main};">
         ${nl2br(data.title)}
       </h1>
-      <p style="font-size:40px; font-weight:500; line-height:1.45; opacity:0.78; margin-bottom:60px;">
+      <p style="font-size:40px;font-weight:500;line-height:1.5;color:${colors.main};opacity:0.72;margin-bottom:60px;max-width:820px;">
         ${nl2br(data.subtitle)}
       </p>
-      <div style="display:inline-block; background:${colors.accent}; color:${colors.main}; padding:18px 40px; font-size:32px; font-weight:900; border-radius:8px;">
-        ${escapeHtml(data.highlight)}
-      </div>
-      <div style="margin-top:auto; padding-top:40px; font-size:28px; font-weight:700; color:${colors.main}; opacity:0.85;">
-        ${escapeHtml(state.channel)}
+      <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:36px;border-top:1px solid ${colors.main}22;">
+        <div style="border:2px solid ${colors.accent};color:${colors.accent};padding:16px 34px;font-size:28px;font-weight:900;letter-spacing:1px;border-radius:6px;">
+          ${escapeHtml(data.highlight)}
+        </div>
+        <div style="font-size:26px;font-weight:700;color:${colors.main};opacity:0.45;">
+          ${escapeHtml(state.channel)}
+        </div>
       </div>
     </div>
   `, colors);
@@ -174,22 +236,27 @@ function renderCover(data, colors, layout) {
 
 // ───────── CONTENT ─────────
 function renderContent(data, colors, layout, channel) {
+  const idxInList = state.contents.findIndex(c => c.number === data.number);
+  const svgDeco = svgCircuit(colors.accent, idxInList);
+
   if (layout === 'minimal') {
     return baseFrame(`
-      <div style="padding:120px 90px 100px; display:flex; flex-direction:column; height:100%;">
-        <div style="font-size:120px; font-weight:900; color:${colors.accent}; line-height:1; letter-spacing:-4px; margin-bottom:24px;">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(180deg,${colors.accent},${colors.accent}44,transparent);"></div>
+      ${svgDeco}
+      <div style="padding:110px 90px 100px 116px;display:flex;flex-direction:column;height:100%;">
+        <div style="font-size:116px;font-weight:900;color:${colors.accent};line-height:1;letter-spacing:-4px;margin-bottom:20px;">
           ${escapeHtml(data.number)}
         </div>
-        <div style="font-size:28px; font-weight:600; letter-spacing:2px; color:${colors.main}; opacity:0.55; margin-bottom:40px; text-transform:uppercase;">
+        <div style="font-size:26px;font-weight:700;letter-spacing:3px;color:${colors.main};opacity:0.5;margin-bottom:36px;text-transform:uppercase;">
           ${escapeHtml(data.subtitle)}
         </div>
-        <h2 style="font-size:90px; font-weight:900; line-height:1.1; letter-spacing:-2px; margin-bottom:50px; border-top:3px solid ${colors.main}; padding-top:50px;">
+        <h2 style="font-size:88px;font-weight:900;line-height:1.1;letter-spacing:-2px;margin-bottom:48px;border-top:2px solid ${colors.main}33;padding-top:48px;">
           ${nl2br(data.title)}
         </h2>
-        <p style="font-size:42px; font-weight:500; line-height:1.55; opacity:0.85;">
+        <p style="font-size:42px;font-weight:500;line-height:1.6;opacity:0.82;">
           ${nl2br(data.body)}
         </p>
-        <div style="margin-top:auto; padding-top:40px; font-size:24px; font-weight:700; color:${colors.accent};">
+        <div style="margin-top:auto;padding-top:40px;font-size:24px;font-weight:700;color:${colors.accent};">
           ${escapeHtml(channel)}
         </div>
       </div>
@@ -197,48 +264,51 @@ function renderContent(data, colors, layout, channel) {
   }
   if (layout === 'bold') {
     return baseFrame(`
-      <div style="position:absolute; top:0; left:0; width:300px; height:300px; background:${colors.accent}; display:grid; place-items:center;">
-        <span style="font-size:170px; font-weight:900; color:${colors.main}; line-height:1;">${escapeHtml(data.number)}</span>
+      <div style="position:absolute;top:0;left:0;width:300px;height:300px;background:${colors.accent};display:grid;place-items:center;">
+        <span style="font-size:168px;font-weight:900;color:${colors.bg};line-height:1;">${escapeHtml(data.number)}</span>
       </div>
-      <div style="padding:340px 90px 90px; display:flex; flex-direction:column; height:100%;">
-        <div style="font-size:28px; font-weight:700; letter-spacing:2px; color:${colors.accent}; margin-bottom:24px; text-transform:uppercase;">
+      ${svgDeco}
+      <div style="padding:330px 90px 90px;display:flex;flex-direction:column;height:100%;">
+        <div style="font-size:26px;font-weight:700;letter-spacing:3px;color:${colors.accent};margin-bottom:22px;text-transform:uppercase;">
           ${escapeHtml(data.subtitle)}
         </div>
-        <h2 style="font-size:100px; font-weight:900; line-height:1.05; letter-spacing:-2px; margin-bottom:60px; color:${colors.main};">
+        <h2 style="font-size:100px;font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:56px;">
           ${nl2br(data.title)}
         </h2>
-        <div style="background:${colors.main}; color:${colors.bg}; padding:50px 50px; font-size:42px; font-weight:500; line-height:1.5;">
+        <div style="background:${colors.main};color:${colors.bg};padding:46px 50px;font-size:40px;font-weight:500;line-height:1.55;border-radius:8px;">
           ${nl2br(data.body)}
         </div>
-        <div style="margin-top:auto; padding-top:40px; text-align:right; font-size:24px; font-weight:700; opacity:0.7;">
-          ${escapeHtml(channel)}
+        <div style="margin-top:auto;padding-top:40px;display:flex;justify-content:space-between;font-size:24px;font-weight:700;">
+          <span style="color:${colors.accent};">${escapeHtml(channel)}</span>
+          <span style="opacity:0.38;">${idxInList + 1} / ${state.contents.length}</span>
         </div>
       </div>
     `, colors);
   }
   // classic
-  const idxInList = state.contents.findIndex(c => c.number === data.number);
   return baseFrame(`
-    <div style="position:absolute; inset:0; background: radial-gradient(circle at 15% 20%, ${colors.accent}22 0%, transparent 50%), ${colors.bg};"></div>
-    <div style="position:relative; padding:110px 90px 90px; display:flex; flex-direction:column; height:100%;">
-      <div style="display:flex; align-items:center; gap:24px; margin-bottom:50px;">
-        <div style="font-size:140px; font-weight:900; color:${colors.accent}; line-height:1; letter-spacing:-4px;">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,${colors.bg} 0%,${colors.bg} 60%,${colors.accent}12 100%);"></div>
+    <div style="position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(180deg,${colors.accent},${colors.accent}44,transparent);"></div>
+    ${svgDeco}
+    <div style="position:relative;padding:110px 90px 90px 116px;display:flex;flex-direction:column;height:100%;">
+      <div style="display:flex;align-items:center;gap:24px;margin-bottom:44px;">
+        <div style="font-size:130px;font-weight:900;color:${colors.accent};line-height:1;letter-spacing:-4px;">
           ${escapeHtml(data.number)}
         </div>
-        <div style="height:120px; width:6px; background:${colors.main}; opacity:0.15;"></div>
-        <div style="font-size:30px; font-weight:700; color:${colors.main}; opacity:0.7; letter-spacing:1px;">
+        <div style="height:110px;width:4px;background:${colors.main};opacity:0.14;flex-shrink:0;"></div>
+        <div style="font-size:28px;font-weight:700;color:${colors.main};opacity:0.62;letter-spacing:1px;max-width:380px;line-height:1.3;">
           ${escapeHtml(data.subtitle)}
         </div>
       </div>
-      <h2 style="font-size:96px; font-weight:900; line-height:1.1; letter-spacing:-2px; margin-bottom:60px;">
+      <h2 style="font-size:94px;font-weight:900;line-height:1.1;letter-spacing:-2px;margin-bottom:50px;color:${colors.main};">
         ${nl2br(data.title)}
       </h2>
-      <p style="font-size:42px; font-weight:500; line-height:1.55; opacity:0.85;">
+      <p style="font-size:42px;font-weight:500;line-height:1.6;color:${colors.main};opacity:0.82;">
         ${nl2br(data.body)}
       </p>
-      <div style="margin-top:auto; padding-top:50px; display:flex; justify-content:space-between; align-items:center; font-size:24px;">
-        <span style="font-weight:700; color:${colors.accent};">${escapeHtml(channel)}</span>
-        <span style="font-weight:700; color:${colors.main}; opacity:0.5;">${idxInList + 1} / ${state.contents.length}</span>
+      <div style="margin-top:auto;padding-top:44px;display:flex;justify-content:space-between;align-items:center;font-size:24px;border-top:1px solid ${colors.main}18;">
+        <span style="font-weight:700;color:${colors.accent};">${escapeHtml(channel)}</span>
+        <span style="font-weight:700;color:${colors.main};opacity:0.32;">${idxInList + 1} / ${state.contents.length}</span>
       </div>
     </div>
   `, colors);
@@ -247,31 +317,33 @@ function renderContent(data, colors, layout, channel) {
 // ───────── CTA ─────────
 function renderCta(data, channel, colors, layout) {
   const bookLine = data.book
-    ? `<div style="font-weight:700; color:${colors.accent}; font-size:26px;">${escapeHtml(data.book)}</div>`
+    ? `<div style="font-weight:700;color:${colors.accent};font-size:26px;">${escapeHtml(data.book)}</div>`
     : '';
   const bookLineBold = data.book
-    ? `<div style="font-weight:800; color:${colors.accent}; margin-top:8px;">${escapeHtml(data.book)}</div>`
+    ? `<div style="font-weight:800;color:${colors.accent};margin-top:8px;">${escapeHtml(data.book)}</div>`
     : '';
   const bookLineClassic = data.book
-    ? `<div style="margin-top:8px; padding-top:20px; border-top:1px solid rgba(245,241,232,0.3); font-weight:700;">${escapeHtml(data.book)}</div>`
+    ? `<div style="margin-top:8px;padding-top:18px;border-top:1px solid ${colors.bg}33;font-weight:700;color:${colors.accent};">${escapeHtml(data.book)}</div>`
     : '';
 
   if (layout === 'minimal') {
     return baseFrame(`
-      <div style="padding:140px 90px; display:flex; flex-direction:column; height:100%; text-align:center; align-items:center; justify-content:center;">
-        <div style="font-size:26px; font-weight:700; letter-spacing:5px; color:${colors.accent}; margin-bottom:50px;">
+      <div style="position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,${colors.accent},${colors.accent}77,transparent)"></div>
+      ${svgPulse(colors.accent)}
+      <div style="position:relative;padding:130px 90px;display:flex;flex-direction:column;height:100%;text-align:center;align-items:center;justify-content:center;">
+        <div style="font-size:24px;font-weight:700;letter-spacing:6px;color:${colors.accent};margin-bottom:50px;">
           THANK YOU
         </div>
-        <h2 style="font-size:100px; font-weight:900; line-height:1.1; letter-spacing:-2px; margin-bottom:30px;">
+        <h2 style="font-size:96px;font-weight:900;line-height:1.1;letter-spacing:-2px;margin-bottom:28px;">
           ${nl2br(data.title)}
         </h2>
-        <p style="font-size:36px; font-weight:500; opacity:0.7; margin-bottom:80px;">
+        <p style="font-size:36px;font-weight:500;opacity:0.65;margin-bottom:80px;">
           ${escapeHtml(data.subtitle)}
         </p>
-        <div style="width:100%; max-width:700px; border-top:2px solid ${colors.main}; padding-top:50px; display:flex; flex-direction:column; gap:24px; font-size:30px;">
-          <div style="font-weight:800;">${escapeHtml(channel)}</div>
-          <div style="opacity:0.75;">🌐 ${escapeHtml(data.homepage)}</div>
-          <div style="opacity:0.75;">✉ ${escapeHtml(data.email)}</div>
+        <div style="width:100%;max-width:700px;border-top:2px solid ${colors.main}33;padding-top:50px;display:flex;flex-direction:column;gap:24px;font-size:30px;">
+          <div style="font-weight:800;color:${colors.accent};">${escapeHtml(channel)}</div>
+          <div style="opacity:0.72;">🌐 ${escapeHtml(data.homepage)}</div>
+          <div style="opacity:0.72;">✉ ${escapeHtml(data.email)}</div>
           ${bookLine}
         </div>
       </div>
@@ -279,20 +351,22 @@ function renderCta(data, channel, colors, layout) {
   }
   if (layout === 'bold') {
     return baseFrame(`
-      <div style="background:${colors.main}; padding:140px 90px; display:flex; flex-direction:column; height:100%; color:${colors.bg};">
-        <div style="display:inline-block; align-self:flex-start; background:${colors.accent}; color:${colors.main}; padding:14px 28px; font-size:24px; font-weight:900; letter-spacing:3px; margin-bottom:50px;">
+      <div style="position:absolute;inset:0;background:${colors.main};"></div>
+      ${svgPulse(colors.accent)}
+      <div style="position:relative;padding:130px 90px;display:flex;flex-direction:column;height:100%;color:${colors.bg};">
+        <div style="display:inline-block;align-self:flex-start;background:${colors.accent};color:${colors.bg};padding:14px 28px;font-size:24px;font-weight:900;letter-spacing:3px;margin-bottom:50px;border-radius:4px;">
           CONNECT
         </div>
-        <h2 style="font-size:120px; font-weight:900; line-height:1.0; letter-spacing:-3px; margin-bottom:40px;">
+        <h2 style="font-size:116px;font-weight:900;line-height:1.0;letter-spacing:-3px;margin-bottom:36px;">
           ${nl2br(data.title)}
         </h2>
-        <p style="font-size:38px; font-weight:500; opacity:0.85; margin-bottom:80px;">
+        <p style="font-size:38px;font-weight:500;opacity:0.82;margin-bottom:70px;">
           ${escapeHtml(data.subtitle)}
         </p>
-        <div style="background:${colors.bg}; color:${colors.main}; padding:40px 50px; margin-top:auto; display:flex; flex-direction:column; gap:18px; font-size:30px;">
-          <div style="font-weight:900; font-size:36px;">${escapeHtml(channel)}</div>
-          <div>🌐 ${escapeHtml(data.homepage)}</div>
-          <div>✉ ${escapeHtml(data.email)}</div>
+        <div style="background:${colors.bg};color:${colors.main};padding:40px 50px;margin-top:auto;display:flex;flex-direction:column;gap:18px;font-size:30px;border-radius:8px;">
+          <div style="font-weight:900;font-size:34px;color:${colors.accent};">${escapeHtml(channel)}</div>
+          <div style="opacity:0.85;">🌐 ${escapeHtml(data.homepage)}</div>
+          <div style="opacity:0.85;">✉ ${escapeHtml(data.email)}</div>
           ${bookLineBold}
         </div>
       </div>
@@ -300,21 +374,25 @@ function renderCta(data, channel, colors, layout) {
   }
   // classic
   return baseFrame(`
-    <div style="position:absolute; inset:0; background: radial-gradient(circle at 50% 30%, ${colors.accent}22 0%, transparent 60%), ${colors.bg};"></div>
-    <div style="position:relative; padding:120px 90px; display:flex; flex-direction:column; height:100%; text-align:center; align-items:center;">
-      <div style="display:inline-block; background:${colors.main}; color:${colors.bg}; padding:14px 32px; font-size:26px; font-weight:800; letter-spacing:3px; margin-bottom:60px;">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,${colors.bg} 0%,${colors.bg} 50%,${colors.accent}0f 100%);"></div>
+    <div style="position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,${colors.accent},${colors.accent}66,transparent);"></div>
+    <div style="position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(180deg,${colors.accent},${colors.accent}33,transparent);"></div>
+    ${svgPulse(colors.accent)}
+    <div style="position:relative;padding:110px 90px 90px;display:flex;flex-direction:column;height:100%;text-align:center;align-items:center;">
+      <div style="display:inline-flex;align-items:center;gap:14px;background:${colors.accent};color:${colors.bg};padding:14px 34px;font-size:26px;font-weight:800;letter-spacing:3px;margin-bottom:60px;border-radius:4px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:${colors.bg};display:inline-block;flex-shrink:0;"></span>
         함께해요
       </div>
-      <h2 style="font-size:106px; font-weight:900; line-height:1.1; letter-spacing:-2px; margin-bottom:30px;">
+      <h2 style="font-size:100px;font-weight:900;line-height:1.1;letter-spacing:-2px;margin-bottom:28px;color:${colors.main};">
         ${nl2br(data.title)}
       </h2>
-      <p style="font-size:38px; font-weight:500; opacity:0.75; margin-bottom:auto;">
+      <p style="font-size:38px;font-weight:500;opacity:0.65;margin-bottom:auto;color:${colors.main};">
         ${escapeHtml(data.subtitle)}
       </p>
-      <div style="margin-top:60px; width:100%; max-width:780px; background:${colors.main}; color:${colors.bg}; padding:50px 60px; border-radius:12px; display:flex; flex-direction:column; gap:20px; font-size:30px;">
-        <div style="font-size:42px; font-weight:900; color:${colors.accent};">${escapeHtml(channel)}</div>
-        <div>🌐 ${escapeHtml(data.homepage)}</div>
-        <div>✉ ${escapeHtml(data.email)}</div>
+      <div style="margin-top:60px;width:100%;max-width:820px;background:${colors.main};color:${colors.bg};padding:46px 60px;border-radius:12px;display:flex;flex-direction:column;gap:20px;font-size:30px;text-align:left;">
+        <div style="font-size:38px;font-weight:900;color:${colors.accent};">${escapeHtml(channel)}</div>
+        <div style="opacity:0.85;">🌐 ${escapeHtml(data.homepage)}</div>
+        <div style="opacity:0.85;">✉ ${escapeHtml(data.email)}</div>
         ${bookLineClassic}
       </div>
     </div>
