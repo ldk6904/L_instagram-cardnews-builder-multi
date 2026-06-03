@@ -16,7 +16,7 @@ const TOTAL_CARDS = 8; // cover(1) + content(6) + cta(1)
 // ───────── 초기 state (기본값) ─────────
 const state = {
   seriesName: '나의 카드뉴스 시리즈',
-  channel: '@AICLab_TV',
+  channel: '',
   layout: 'classic',
   colors: { main: '#1a2332', accent: '#d4af37', bg: '#f5f1e8' },
   cover: {
@@ -34,11 +34,11 @@ const state = {
     { number: '06', subtitle: '멀티플랫폼 송출',             title: '한 곳에 올인 금지',      body: '블로그·유튜브·인스타·X.\n여러 출처에서 보이는 글을\nAI는 더 신뢰합니다.' },
   ],
   cta: {
-    title: '더 깊이 배우려면\n채널 구독!',
-    subtitle: '매주 새로운 콘텐츠',
-    homepage: 'kimjinsoo.vercel.app',
-    email: 'info@aiclab2020.com',
-    book: '저서 《이것이 GEO마케팅이다》',
+    title: '',
+    subtitle: '',
+    homepage: '',
+    email: '',
+    book: '',
   },
 };
 
