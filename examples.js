@@ -13,7 +13,7 @@ const EXAMPLES = [
     tag: '마케팅 · GEO',
     state: {
       seriesName: 'GEO 마케팅 시리즈',
-      channel: '@AICLab_TV',
+      channel: '@힘빼라AI',
       layout: 'classic',
       colors: { main: '#1a2332', accent: '#d4af37', bg: '#f5f1e8' },
       cover: {
@@ -31,11 +31,11 @@ const EXAMPLES = [
         { number: '06', subtitle: '멀티플랫폼 송출',         title: '한 곳에 올인 금지', body: '블로그·유튜브·인스타·X.\n여러 출처에서 보이는 글을\nAI는 더 신뢰합니다.' },
       ],
       cta: {
-        title: 'GEO를\n더 깊이 배우려면',
-        subtitle: '메이TV에서 매주 만나요',
-        homepage: 'kimjinsoo.vercel.app',
-        email: 'info@aiclab2020.com',
-        book: '저서 《이것이 GEO마케팅이다》',
+        title: 'AI를\n더 쉽게 배우려면',
+        subtitle: '라동기 박사의 힘빼라 AI',
+        homepage: 'ldk6904.tistory.com',
+        email: 'ldk690497@gmail.com',
+        book: '블로그 《힘빼라 AI》',
       },
     },
   },
